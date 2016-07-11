@@ -589,6 +589,14 @@ function init() {
     <h3 class="subtitle"><a href="three/aprog13.html">for example</a></h3>
   </article>
 
+   <article>
+    <h3>Other Debugging Tools</h3>
+    <p><a href="http://jshint.com">http://jshint.com</a> is handy.<br>It can also be used as a plug-in for various text editors.</p>
+	<br><br>
+	Lots more tools listed at <a href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>.
+	<p>
+  </article>
+
   <article class="title">
     <h2>Other Good Stuff</h2>
   </article>
@@ -597,7 +605,7 @@ function init() {
     <h3>How about Shadows?</h3>
     <p>Three.js has shadow maps.</p>
     <p>You need to enable them per-light and per-object.</p>
-    <p>The shadows only work on SpotLights.</p>
+    <p>The shadows work on only spot and directional lights.</p>
     <pre>
       // enable shadows on the renderer
       renderer.shadowMapEnabled = true;
@@ -699,66 +707,6 @@ var meshCube = new THREE.Mesh(
 );</pre>
   </article>
 
-  <article class="title">
-    <h2>Useful uses</h2>
-  </article>
-
-  <article>
-    <h3>Bar graph</h3>
-    <pre>
-      var grid = /* 2D Array */
-      var barGraph = new THREE.Object3D();
-      scene.add(barGraph);
-
-      var max = /* Grid max value */
-      var mat = new THREE.MeshLambertMaterial({color: 0xFFAA55});
-      for (var j=0; j&lt;grid.length; j++) {
-        for (var i=0; i&lt;grid[j].length; i++) {
-          var barHeight = grid[j][i]/max * 80;
-          var geo = new THREE.CubeGeometry(8, barHeight, 8);
-          var mesh = new THREE.Mesh(geo, mat);
-          mesh.position.x = (i-grid[j].length/2) * 16;
-          mesh.position.y = barHeight/2;
-          mesh.position.z = -(j-grid.length/2) * 16;
-          mesh.castShadow = mesh.receiveShadow = true;
-          barGraph.add(mesh);
-        }
-      }</pre>
-  </article>
-  
-  <article>
-    <h3>Bar graph in action</h3>
-    <iframe src="three/three_7.html"></iframe>
-  </article>
-
-  <article>
-    <h3>Scatter plot</h3>
-    <pre>
-var scatterPlot = new THREE.Object3D();
-var mat = new THREE.ParticleBasicMaterial(
-  {vertexColors: true, size: 1.5});
-
-var pointCount = 10000;
-var pointGeo = new THREE.Geometry();
-for (var i=0; i&lt;pointCount; i++) {
-  var x = Math.random() * 100 - 50;
-  var y = x*0.8+Math.random() * 20 - 10;
-  var z = x*0.7+Math.random() * 30 - 15;
-  pointGeo.vertices.push(new THREE.Vertex(new THREE.Vector3(x,y,z)));
-  pointGeo.colors.push(new THREE.Color().setHSV(
-    (x+50)/100, (z+50)/100, (y+50)/100));
-}
-var points = new THREE.ParticleSystem(pointGeo, mat);
-scatterPlot.add(points);
-scene.fog = new THREE.FogExp2(0xFFFFFF, 0.0035);</pre>
-  </article>
-
-  <article>
-    <h3>Scatter plot in action</h3>
-    <iframe src="three/three_8.html"></iframe>
-    <p class="small">Double-click to animate</p>
-  </article>
-
   <article>
     <h3>How to select?</h3>
     <p>Project a ray into the scene and find intersecting objects.</p>
@@ -830,6 +778,66 @@ function(collada) {
   <article>
     <h3>Monster</h3>
     <iframe src="three/three_13.html"></iframe>
+  </article>
+
+  <article class="title">
+    <h2>Useful uses</h2>
+  </article>
+
+  <article>
+    <h3>Bar graph</h3>
+    <pre>
+      var grid = /* 2D Array */
+      var barGraph = new THREE.Object3D();
+      scene.add(barGraph);
+
+      var max = /* Grid max value */
+      var mat = new THREE.MeshLambertMaterial({color: 0xFFAA55});
+      for (var j=0; j&lt;grid.length; j++) {
+        for (var i=0; i&lt;grid[j].length; i++) {
+          var barHeight = grid[j][i]/max * 80;
+          var geo = new THREE.CubeGeometry(8, barHeight, 8);
+          var mesh = new THREE.Mesh(geo, mat);
+          mesh.position.x = (i-grid[j].length/2) * 16;
+          mesh.position.y = barHeight/2;
+          mesh.position.z = -(j-grid.length/2) * 16;
+          mesh.castShadow = mesh.receiveShadow = true;
+          barGraph.add(mesh);
+        }
+      }</pre>
+  </article>
+  
+  <article>
+    <h3>Bar graph in action</h3>
+    <iframe src="three/three_7.html"></iframe>
+  </article>
+
+  <article>
+    <h3>Scatter plot</h3>
+    <pre>
+var scatterPlot = new THREE.Object3D();
+var mat = new THREE.ParticleBasicMaterial(
+  {vertexColors: true, size: 1.5});
+
+var pointCount = 10000;
+var pointGeo = new THREE.Geometry();
+for (var i=0; i&lt;pointCount; i++) {
+  var x = Math.random() * 100 - 50;
+  var y = x*0.8+Math.random() * 20 - 10;
+  var z = x*0.7+Math.random() * 30 - 15;
+  pointGeo.vertices.push(new THREE.Vertex(new THREE.Vector3(x,y,z)));
+  pointGeo.colors.push(new THREE.Color().setHSV(
+    (x+50)/100, (z+50)/100, (y+50)/100));
+}
+var points = new THREE.ParticleSystem(pointGeo, mat);
+scatterPlot.add(points);
+scene.fog = new THREE.FogExp2(0xFFFFFF, 0.0035);</pre>
+  </article>
+
+  <article>
+    <h3>Scatter plot in action</h3>
+    <iframe src="three/three_8.html"></iframe>
+    <p class="small">Double-click to animate</p>
   </article>
 
   <article class="title">
