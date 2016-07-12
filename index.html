@@ -60,6 +60,11 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     </ul>
   </article>
 
+  <article>
+    <h3>Do You See Something?</h3>
+    <iframe src="three/webgl_geometry_hierarchy2.html"></iframe>
+  </article>
+
   <article id="title" class="title">
     <div>
       <h1>Three.js basics</h1>
@@ -76,7 +81,9 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 	  | <a href="https://twitter.com/pointinpolygon">@pointinpolygon</a></p>
     <p>Software engineer working on <a href="http://lmv.rocks">LMV</a> at Autodesk, Inc.</p>
     <br><br>
-    <p>Slides at <a href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a> (<a href="https://github.com/erich666/BasicsOfThreeJS">github.com/erich666/BasicsOfThreeJS</a>)</p>
+    <p>Download demos &amp; slides at <a href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a></p>
+	<p>Or follow along at <a href="http://bit.ly/basics3js">http://bit.ly/basics3js</a>
+	
       
   </article>
 
@@ -682,11 +689,6 @@ function init() {
   </article>
 
   <article>
-    <h3>It's very colorful</h3>
-    <iframe src="three/three_6.html"></iframe>
-  </article>
-
-  <article>
     <h3>Shaders and Three.js</h3>
     <p>Use a ShaderMaterial</p>
     <pre>
@@ -708,29 +710,34 @@ var meshCube = new THREE.Mesh(
   </article>
 
   <article>
+    <h3>It's very colorful</h3>
+    <iframe src="three/three_6.html"></iframe>
+  </article>
+
+  <article>
     <h3>How to select?</h3>
-    <p>Project a ray into the scene and find intersecting objects.</p>
+    <p>Shoot a ray into the scene and find intersecting objects.</p>
     <pre>
-var projector = new THREE.Projector();
-window.addEventListener('mousedown', function (ev){
-  if (ev.target == renderer.domElement) {
-    var x = ev.clientX;
-    var y = ev.clientY;
-    var v = new THREE.Vector3((x/width)*2-1, -(y/height)*2+1, 0.5);
-    projector.unprojectVector(v, camera);
-    var ray = new THREE.Ray(camera.position, 
-                            v.subSelf(camera.position).normalize());
-    var intersects = ray.intersectObjects(controller.objects);
-    if (intersects.length > 0) {
-      controller.setCurrent(intersects[0].object);
+raycaster.setFromCamera( mouse, camera );
+var intersects = raycaster.intersectObjects( scene.children );
+if ( intersects.length > 0 ) {
+    if ( INTRSCT != intersects[ 0 ].object ) {
+        if ( INTRSCT )
+            INTRSCT.material.emissive.setHex( INTRSCT.currentHex );
+        INTRSCT = intersects[ 0 ].object;
+        INTRSCT.currentHex = INTRSCT.material.emissive.getHex();
+        INTRSCT.material.emissive.setHex( 0xff0000 );
     }
-  }
-}, false);</pre>
+} else {
+    if ( INTRSCT )
+        INTRSCT.material.emissive.setHex( INTRSCT.currentHex );
+    INTRSCT = null;
+}</pre>
   </article>
 
   <article>
     <h3>WebGL Interactive Cubes</h3>
-    <iframe src="three/webgl_interactive.html"></iframe>
+    <iframe src="three/webgl_interactive_cube.html"></iframe>
   </article>
 
   <article class="title">
