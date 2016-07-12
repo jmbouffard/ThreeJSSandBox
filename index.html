@@ -653,7 +653,7 @@ function init() {
     <p>Where to draw.</p>
     <p>Projects geometry to screen coordinates.</p>
     <pre>
-    &lt;script id="vertex" type="text/x-glsl-vert">
+    &lt;script id="vertex" type="x-shader/x-vertex"&gt;
       varying float vZ;
       uniform float time;
       void main() {
@@ -672,7 +672,7 @@ function init() {
     <p>What to draw.</p>
     <p>Computes the color of a pixel.</p>
     <pre>
-    &lt;script id="fragment" type="text/x-glsl-frag">
+    &lt;script id="fragment" type="x-shader/x-fragment"&gt;
       varying float vZ;
       uniform float time;
       uniform vec2 size;
@@ -699,8 +699,8 @@ var uniforms = {
 
 var shaderMaterial = new THREE.ShaderMaterial({
   uniforms : uniforms,
-  vertexShader : $('#vertex').text(),
-  fragmentShader : $('#fragment').text()
+  vertexShader: document.getElementById( 'vertex' ).textContent,
+  fragmentShader: document.getElementById( 'fragment' ).textContent
 });
 
 var meshCube = new THREE.Mesh(
