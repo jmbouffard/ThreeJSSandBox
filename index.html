@@ -322,11 +322,22 @@ scene = new THREE.Scene();
 light = new THREE.DirectionalLight(0xffffff);
 light.position.set(100,200,400);
 scene.add(light);</pre>
-    <p>And change the material:</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>And Change the Material</h3>
+    <div>
+    <p>A one-word change, "Basic" to "Phong":</p>
     <pre>
 // material = new THREE.MeshBasicMaterial( { map: texture } );
 // to have the lights affect the material, use Phong instead of Basic
 material = new THREE.MeshPhongMaterial( { map: texture } );</pre>
+<p>Another option is the new physically-based material (PBR):
+    <pre>
+// material = new THREE.MeshBasicMaterial( { map: texture } );
+// to have the lights affect the material, use Phong instead of Basic
+material = new THREE.MeshStandardMaterial( { map: texture } );</pre>
     </div>
   </article>
 
