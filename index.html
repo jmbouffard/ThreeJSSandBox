@@ -99,7 +99,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <li>Easy to use</li>
       <li>Popular and used commercially</li>
       <li>WebGL renderer (our focus today)</li>
-      <li>Also has Canvas and SVG renderers</li>
+      <li>Also has Canvas, CSS3D, and SVG renderers</li>
     </ul>
   </article>
 
@@ -268,7 +268,7 @@ function animate() {
     <pre>
 renderer.setSize( window.innerWidth, window.innerHeight );
 
-// create the controls
+// create the controls - add this
 controls = new THREE.OrbitControls( camera, renderer.domElement );</pre>
     </div>
 	This associates the mouse with the camera.
@@ -286,16 +286,17 @@ controls = new THREE.OrbitControls( camera, renderer.domElement );</pre>
 	<P>
     <p>Change the texture name:</p>
     <pre>
+// how the line used to look:
 //var texture = new THREE.TextureLoader().load( 
 //	'textures/crate.gif' );
 
 var texture = new THREE.TextureLoader().load(
-	'textures/UV_Grid_Sm.jpg' );</pre>
+	'textures/UV_Grid_Sm.jpg' ); // new file name</pre>
     <p>Also, let's change the background color:</p>
     <pre>
 renderer = new THREE.WebGLRenderer();
 
-// set the background color to gray: a0 is R,G,B
+// set the background color to gray: a0 is R,G,B; a0=10*16+0 hex=160
 renderer.setClearColor( 0xa0a0a0 );</pre>
     </div>
   </article>
@@ -609,10 +610,11 @@ function init() {
 
    <article>
     <h3>Other Debugging Tools</h3>
-    <p><a href="http://jshint.com">http://jshint.com</a> is handy.<br>It can also be used as a plug-in for various text editors.</p>
+    <p><a href="http://jshint.com">http://jshint.com</a> / ESLint are handy.<br>Website / plug-in for various text editors.</p>
 	<br><br>
-	Lots more tools listed at <a href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>.
-	<p>
+  <p>Spector.js is a WegGL tool helpful for watching things draw.</p>
+  <br><br>
+	<p>Lots more tools listed at <a href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>.</p>
   </article>
 
   <article class="title">
@@ -774,6 +776,7 @@ if ( intersects.length > 0 ) {
       <li>JSONLoader.js</li>
       <li>OBJLoader.js</li>
       <li>UTF8Loader.js</li>
+      <li>GLTFLoader.js</li>
     </ul>
     <p>And many more. So what should I use?</p>
   </article>
@@ -865,7 +868,7 @@ scene.fog = new THREE.FogExp2(0xFFFFFF, 0.0035);</pre>
   <article>
     <h3>Three.js Ecosystem</h3>
 	<p>It's JavaScript</p>
-	<p>They're on release 80 or so...</p>
+	<p>They're on release 86 or so...</p>
     <p>They attempt to make the API perfect</p>
     <p>&nbsp;&nbsp;&nbsp;This can be good, e.g. ES2015</p>
     <p>&nbsp;&nbsp;&nbsp;But, they're not big on backward compatibility</p>
@@ -892,7 +895,7 @@ scene.fog = new THREE.FogExp2(0xFFFFFF, 0.0035);</pre>
     <br>
     <p>Slides at <a href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a> (<a href="https://github.com/erich666/BasicsOfThreeJS">github.com/erich666/BasicsOfThreeJS</a>)</p>
 	<br>
-	<p>A full free course I created: <a href="http://bit.ly/ericity">http://bit.ly/ericity</a>
+	<p>A full free course I created: <a href="http://bit.ly/intro3D">http://bit.ly/intro3D</a>
 	<p>My WebGL resource page: <a href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>
   </article>
 
