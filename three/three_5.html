@@ -30,7 +30,7 @@
       renderer.setClearColorHex(0xEEEEEE, 1.0);
       renderer.clear();
       renderer.shadowCameraFov = 50;
-      renderer.shadowMapWidth = 1024;;
+      renderer.shadowMapWidth = 1024;
       renderer.shadowMapHeight = 1024;
 
 
@@ -41,9 +41,9 @@
       var near = 1; // near clip plane
       var far = 10000; // far clip plane
       var camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
-      camera.position.z = -400;
-      camera.position.x = 200;
-      camera.position.y = 350;
+      camera.position.z = -300;
+      camera.position.x = 150;
+      camera.position.y = 250;
       var scene = new THREE.Scene();
       var cube = new THREE.Mesh(
         new THREE.CubeGeometry(50,50,50),

@@ -49,19 +49,19 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <article>
     <h3>Download Demo Programs</h3>
     <ul>
-      <li>Go to <a href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a> (aka <a href="https://github.com/erich666/BasicsOfThreeJS">https://github.com/erich666/BasicsOfThreeJS</a>)</li>
-	  <li>Click on "Clone or download", download zip, unzip</li>
-      <li>Double-click index.html to check things are working</li>
-	  <li>You'll need to set up local access: <a href="http://bit.ly/webglsetup">http://bit.ly/webglsetup</a>
+      <li>Go to <a target="_blank" href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a> (aka <a target="_blank" href="https://github.com/erich666/BasicsOfThreeJS">https://github.com/erich666/BasicsOfThreeJS</a>)</li>
+	  <li>Click on "Clone or download", download zip, unzip.</li>
+      <li>Double-click index.html and go to Slide 3 (use arrow keys) to check things are working.</li>
+	  <li>You'll need to set up local access: <a target="_blank" href="http://bit.ly/localwebgl">http://bit.ly/localwebgl</a>
 	  <ul>
-	    <li>Short version: kill all Chrome instances, and then:
+	    <li>Short version: kill <I>all</I> Chrome instances, and then:
 		<PRE>chrome.exe --allow-file-access-from-files</PRE>
 	  </ul>
     </ul>
   </article>
 
   <article>
-    <h3>Do You See Something?</h3>
+    <h3>Do You See A Crate?</h3>
     <iframe src="three/aprog1.html"></iframe>
   </article>
 
@@ -76,13 +76,14 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <article>
     <h3>Who am I?</h3>
     <p>Eric Haines</p>
-    <p><a href="http://erichaines.com">erichaines.com</a>
+    <p><a target="_blank" href="http://erichaines.com">erichaines.com</a>
 	  | erich@acm.org
-	  | <a href="https://twitter.com/pointinpolygon">@pointinpolygon</a></p>
-    <p>Software engineer working on <a href="http://lmv.rocks">LMV</a> at Autodesk, Inc.</p>
+	  | <a target="_blank" href="https://twitter.com/pointinpolygon">@pointinpolygon</a></p>
+    <p>Software engineer working on the <a target="_blank" href="http://lmv.rocks">Autodesk Viewer</a>.</p>
+	<p>Also developed and answers questions for <a target="_blank" href="http://bit.ly/intro3D">this MOOC</a>.</p>
     <br><br>
-    <p>Download demos &amp; slides at <a href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a></p>
-	<p>Or follow along at <a href="http://bit.ly/basics3js">http://bit.ly/basics3js</a>
+    <p>Download demos &amp; slides at <a target="_blank" href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a></p>
+	<p>Or follow along at <a target="_blank" href="http://bit.ly/basics3js">http://bit.ly/basics3js</a>
 	
       
   </article>
@@ -94,20 +95,23 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <article>
     <h3>Three.js is a JS 3D Engine</h3>
     <ul>
-      <li><a href="http://threejs.org">http://threejs.org</a></li>
+      <li><a target="_blank" href="http://threejs.org">http://threejs.org</a></li>
       <li>Lightweight</li>
       <li>Easy to use</li>
       <li>Popular and used commercially</li>
-      <li>WebGL renderer (our focus today)</li>
+      <li>Performant WebGL renderer (our focus today)</li>
+		<ul>
+		  <li>Fast 3D and 2D GPU-accelerated rendering</li>
+		</ul>
       <li>Also has Canvas, CSS3D, and SVG renderers</li>
     </ul>
   </article>
 
   <article>
     <h3>A Quick Demo</h3>
-    Musical Turk: <a href="http://ulysse.io/turk/">http://ulysse.io/turk/</a>
+    Musical Turk: <a target="_blank" href="http://ulysse.io/turk/">http://ulysse.io/turk/</a>
 	<br><br>
-	Repo at <a href="https://github.com/ucarion/turk">https://github.com/ucarion/turk</a>
+	Repo at <a target="_blank" href="https://github.com/ucarion/turk">https://github.com/ucarion/turk</a>
   </article>
   
   <article>
@@ -123,13 +127,15 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 	<pre>
 	chrome.exe --allow-file-access-from-files</pre>
 	It's a security thing.
-	<br><br>See <a href="http://bit.ly/webglsetup">http://bit.ly/webglsetup</a> for more information and other ways to work around this (e.g., start a local server).
+	<br><br>See <a target="_blank" href="http://bit.ly/webglsetup">http://bit.ly/webglsetup</a> for more information and other ways to work around this (e.g., start a local server).
+	<p>Bonus info: debugger is F12 on Windows, Cmd-Shift-J on the Mac. Click on console tab for errors.
   </article>
 
   <article>
     <h3>The Existing Code</h3>
     <div>
-	Look at <a href="three/aprog1.html">BasicsOfThreeJS/three/aprog1.html</a>,<br>which is <a href="http://threejs.org/examples/#webgl_geometry_cube">an example</a> that comes with three.js.
+	Look at <a target="_blank" href="three/aprog1.html">BasicsOfThreeJS/three/aprog1.html</a>, <a target="_blank" href="http://threejs.org/examples/#webgl_geometry_cube">an example</a> that comes with three.js.
+	<P>Hit Ctrl-U to view the source code.
 	<P>
     <p>Create a Camera</p>
     <pre>
@@ -167,7 +173,7 @@ renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );</pre>
-	and some boring window resize code.
+	and some typical window resize code.
     </div>
   </article>
 
@@ -190,12 +196,15 @@ function animate() {
   <article>
     <h3>requestAnimationFrame?</h3>
     <pre>requestAnimationFrame(function(time){}, element)</pre>
-    <p>It's like <code>setTimeout(f, timeUntilNextFrame)</code></p>
-    <p>Except that:</p>
+    <p>It's like <code>setTimeout(f, timeUntilNextFrame)</code> except that:</p>
+	<ul>
     <li>The browser knows when the next frame is drawn</li>
     <div> &rarr; calls callback at screen refresh rate or lower<br><br></div>
     <li>The browser knows when an element is on the screen</li>
+	</ul>
     <div> &rarr; only calls callback when the element is visible</div>
+	<P>
+	<B>Always</B> use this for best efficiency, especially for mobile.</P>
   </article>
 
   <article class="title">
@@ -205,7 +214,7 @@ function animate() {
   <article>
     <h3>First Step</h3>
     <div>
-	Code: <a href="three/aprog1.html">BasicsOfThreeJS/three/aprog1.html</a>
+	Code: <a target="_blank" href="three/aprog1.html">BasicsOfThreeJS/three/aprog1.html</a>
 	<P>
     <p>Turn off the rotations; comment them out:</p>
     <pre>
@@ -217,6 +226,8 @@ function animate() {
 
 	renderer.render( scene, camera );
 }</pre>
+	<P>
+	Edit in your favorite text editor, save, and refresh the browser (F5 on Windows; Cmd-R on Mac) to see the result.</P>
     </div>
   </article>
 
@@ -228,7 +239,7 @@ function animate() {
   <article>
     <h3>Hook up a Mouse Control</h3>
     <div>
-	Code: <a href="three/aprog2.html">BasicsOfThreeJS/three/aprog2.html</a>
+	Code: <a target="_blank" href="three/aprog2.html">BasicsOfThreeJS/three/aprog2.html</a>
 	<P>
     <p>Part one, add controls line at the end, since we're here:</p>
     <pre>
@@ -248,7 +259,7 @@ function animate() {
   <article>
     <h3>Hook up a Mouse Control 2</h3>
     <div>
-    <p>At top, include OrbitControls.js and define controls:</p>
+    <p>At top, include OrbitControls.js script, and declare controls:</p>
     <pre>
 &lt;body&gt;
 	&lt;script src="three.js/build/three.js"&gt;&lt;/script&gt;
@@ -271,7 +282,9 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 // create the controls - add this
 controls = new THREE.OrbitControls( camera, renderer.domElement );</pre>
     </div>
-	This associates the mouse with the camera.
+	This associates the mouse with the camera. Try the left/right/middle buttons, and mouse wheel.
+	<P>
+	OrbitControls has lots of options to customize behavior. Also works with touch controls for mobile.</P>
   </article>
 
   <article>
@@ -282,7 +295,7 @@ controls = new THREE.OrbitControls( camera, renderer.domElement );</pre>
   <article>
     <h3>Let's Use a Different Texture</h3>
     <div>
-	Code: <a href="three/aprog3.html">BasicsOfThreeJS/three/aprog3.html</a>
+	Code: <a target="_blank" href="three/aprog3.html">BasicsOfThreeJS/three/aprog3.html</a>
 	<P>
     <p>Change the texture name:</p>
     <pre>
@@ -313,7 +326,7 @@ renderer.setClearColor( 0xa0a0a0 );</pre>
   <article>
     <h3>Let's Add a Light</h3>
     <div>
-	Code: <a href="three/aprog4.html">BasicsOfThreeJS/three/aprog4.html</a>
+	Code: <a target="_blank" href="three/aprog4.html">BasicsOfThreeJS/three/aprog4.html</a>
 	<P>
     <p>Get typing:</p>
     <pre>
@@ -329,7 +342,7 @@ scene.add(light);</pre>
   <article>
     <h3>And Change the Material</h3>
     <div>
-    <p>A one-word change, "Basic" to "Phong":</p>
+    <p>A one-word change, "Basic" to "Phong" or "Standard":</p>
     <pre>
 // material = new THREE.MeshBasicMaterial( { map: texture } );
 // to have the lights affect the material, use Phong instead of Basic
@@ -350,7 +363,7 @@ material = new THREE.MeshStandardMaterial( { map: texture } );</pre>
   <article>
     <h3>Let's Add More Lights</h3>
     <div>
-	Code: <a href="three/aprog5.html">BasicsOfThreeJS/three/aprog5.html</a>
+	Code: <a target="_blank" href="three/aprog5.html">BasicsOfThreeJS/three/aprog5.html</a>
 	<P>
     <p>Copy and paste the original light and modify:</p>
     <pre>
@@ -379,7 +392,7 @@ This is bad practice, BTW: I didn't declare these variables.
   <article>
     <h3>Let's Add A Ground Plane</h3>
     <div>
-	Code: <a href="three/aprog6.html">BasicsOfThreeJS/three/aprog6.html</a>
+	Code: <a target="_blank" href="three/aprog6.html">BasicsOfThreeJS/three/aprog6.html</a>
 	<P>
     <p>Add an object:</p>
     <pre>
@@ -404,7 +417,7 @@ scene.add( plane );</pre>
   <article>
     <h3>Rotate the Plane...</h3>
     <div>
-	Code: <a href="three/aprog7.html">BasicsOfThreeJS/three/aprog7.html</a>
+	Code: <a target="_blank" href="three/aprog7.html">BasicsOfThreeJS/three/aprog7.html</a>
 	<P>
     <p>But along what axis? Let's add this:</p>
     <pre>
@@ -425,7 +438,7 @@ Adds an XYZ set of axes, with colors RGB
   <article>
     <h3>Rotate the Plane</h3>
     <div>
-	Code: <a href="three/aprog8.html">BasicsOfThreeJS/three/aprog8.html</a>
+	Code: <a target="_blank" href="three/aprog8.html">BasicsOfThreeJS/three/aprog8.html</a>
 	<P>
     <p>Rotations are in radians:</p>
     <pre>
@@ -445,7 +458,7 @@ scene.add( plane );</pre>
   <article>
     <h3>Position the Plane</h3>
     <div>
-	Code: <a href="three/aprog9.html">BasicsOfThreeJS/three/aprog9.html</a>
+	Code: <a target="_blank" href="three/aprog9.html">BasicsOfThreeJS/three/aprog9.html</a>
 	<P>
     <p>Green is the Y axis</p>
     <pre>
@@ -470,7 +483,7 @@ scene.add( plane );</pre>
  <article>
     <h3>Interactive Controls</h3>
     <div>
-	Code: <a href="three/aprog10.html">BasicsOfThreeJS/three/aprog10.html</a>
+	Code: <a target="_blank" href="three/aprog10.html">BasicsOfThreeJS/three/aprog10.html</a>
 	<P>
     <p>Add the dat.gui library to the top, and definitions:</p>
     <pre>
@@ -531,7 +544,7 @@ function animate() {
   <article>
     <h3>I'm Sick of the Box</h3>
     <div>
-	Code: <a href="three/aprog11.html">BasicsOfThreeJS/three/aprog11.html</a>
+	Code: <a target="_blank" href="three/aprog11.html">BasicsOfThreeJS/three/aprog11.html</a>
 	<P>
     <p>Change it to a sphere:</p>
     <pre>
@@ -539,6 +552,10 @@ function animate() {
 // let's use a sphere instead of a box
 var geometry = new THREE.SphereGeometry( 100, 32, 16 );</pre>
 100 is the radius, 32 x 16 is the mesh formed.
+	<p>See the mesh by changing the material to:
+	<pre>
+material = new THREE.MeshPhongMaterial( { map: texture, 
+    wireframe : true } );</pre>
     </div>
   </article>
 
@@ -554,7 +571,7 @@ var geometry = new THREE.SphereGeometry( 100, 32, 16 );</pre>
   <article>
     <h3>Let's Make It Bounce</h3>
     <div>
-	Code: <a href="three/aprog12.html">BasicsOfThreeJS/three/aprog12.html</a>
+	Code: <a target="_blank" href="three/aprog12.html">BasicsOfThreeJS/three/aprog12.html</a>
 	<P>
     <p>Add a line to change the mesh's vertical position:</p>
     <pre>
@@ -583,7 +600,7 @@ function animate() {
   <article>
     <h3>What's Chopping That Corner?</h3>
     <div>
-	Code: <a href="three/aprog13.html">BasicsOfThreeJS/three/aprog13.html</a>
+	Code: <a target="_blank" href="three/aprog13.html">BasicsOfThreeJS/three/aprog13.html</a>
 	<P>
     <p>The camera has a near and far plane to it. Move the far plane out a bit, from 1000 to 2000:</p>
     <pre>
@@ -605,16 +622,17 @@ function init() {
   <article class="title">
     <h2>Debugging</h2>
     <h2 class="subtitle">Is just F12 away</h2>
-    <h3 class="subtitle"><a href="three/aprog13.html">for example</a></h3>
+    <h3 class="subtitle"><a target="_blank" href="three/aprog13.html">for example</a></h3>
   </article>
 
    <article>
-    <h3>Other Debugging Tools</h3>
-    <p><a href="http://jshint.com">http://jshint.com</a> / ESLint are handy.<br>Website / plug-in for various text editors.</p>
+    <h3>Debugging Tools</h3>
+	<P>F12 on Windows, Cmd-Shift-J on the Mac</p>
+    <p><a target="_blank" href="http://jshint.com">http://jshint.com</a> / ESLint are handy.<br>Website / plug-in for various text editors.</p>
 	<br><br>
-  <p>Spector.js is a WegGL tool helpful for watching things draw.</p>
+  <p><a target="_blank" href="https://spector.babylonjs.com/">Spector.js</a> is a WegGL tool helpful for watching things draw.</p>
   <br><br>
-	<p>Lots more tools listed at <a href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>.</p>
+	<p>Lots more tools listed at <a target="_blank" href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>.</p>
   </article>
 
   <article class="title">
@@ -627,6 +645,7 @@ function init() {
     <p>Three.js has shadow maps.</p>
     <p>You need to enable them per-light and per-object.</p>
     <p>The shadows work on only spot and directional lights.</p>
+	<p>Code from <a target="_blank" href="three/three_5.html">BasicsOfThreeJS/three/three_5.html</a>:</p>
     <pre>
       // enable shadows on the renderer
       renderer.shadowMap.enabled = true;
@@ -664,7 +683,7 @@ function init() {
 
   <article>
     <h3>Vertex shader</h3>
-    <p>Where to draw.</p>
+    <p>Where to draw (<a target="_blank" href="https://github.com/erich666/BasicsOfThreeJS/blob/master/three/three_6.html">code</a>).</p>
     <p>Projects geometry to screen coordinates.</p>
     <pre>
     &lt;script id="vertex" type="x-shader/x-vertex"&gt;
@@ -730,7 +749,7 @@ var meshCube = new THREE.Mesh(
 
   <article>
     <h3>How to select?</h3>
-    <p>Shoot a ray into the scene and find intersecting objects.</p>
+    <p>Shoot a view ray and find intersecting objects (<a target="_blank" href="https://github.com/erich666/BasicsOfThreeJS/blob/master/three/webgl_interactive_cube.html">code</a>).</p>
     <pre>
 raycaster.setFromCamera( mouse, camera );
 var intersects = raycaster.intersectObjects( scene.children );
@@ -794,7 +813,7 @@ function(collada) {
 });</pre>
     <p>Doesn't look too complicated.</p>
     <p>Copy-pasted from examples/webgl_collada.html</p>
-    <p>Along with the code to make it animate.</p>
+    <p>Along with the code to make it animate (<a target="_blank" href="https://github.com/erich666/BasicsOfThreeJS/blob/master/three/three_13.html">program</a>).</p>
   </article>
 
   <article>
@@ -803,7 +822,7 @@ function(collada) {
   </article>
 
   <article class="title">
-    <h2>Useful uses</h2>
+    <h2>Practical uses</h2>
   </article>
 
   <article>
@@ -874,30 +893,30 @@ scene.fog = new THREE.FogExp2(0xFFFFFF, 0.0035);</pre>
     <p>&nbsp;&nbsp;&nbsp;This can be good, e.g. ES2015</p>
     <p>&nbsp;&nbsp;&nbsp;But, they're not big on backward compatibility</p>
 	<p>Documentation is sometimes "TODO"</p>
-	<p>&nbsp;&nbsp;&nbsp;Pro tip: <a href="http://stemkoski.github.io/Three.js/">http://stemkoski.github.io/Three.js/</p>
+	<p>&nbsp;&nbsp;&nbsp;Pro tip: <a target="_blank" href="http://stemkoski.github.io/Three.js/">http://stemkoski.github.io/Three.js/</p>
   </article>
   
   <article>
     <h3>Three.js Summary</h3>
-    <p><a href="https://threejs.org">threejs.org</a></p>
+    <p><a target="_blank" href="https://threejs.org">threejs.org</a></p>
     <p>JavaScript library for 3D graphics</p>
     <p>Easy to use</p>
     <p>Efficient</p>
     <p>Nice feature set</p>
-    <p>DAT.GUI for simple GUIs <a href="http://code.google.com/p/dat-gui">code.google.com/p/dat-gui</a></p>
+    <p>DAT.GUI for simple GUIs <a target="_blank" href="http://code.google.com/p/dat-gui">code.google.com/p/dat-gui</a></p>
   </article>
   
   <article>
     <h3>The End</h3>
     <p>Eric Haines</p>
-    <p><a href="http://erichaines.com">erichaines.com</a>
+    <p><a target="_blank" href="http://erichaines.com">erichaines.com</a>
 	  | erich@acm.org
-	  | <a href="https://twitter.com/pointinpolygon">@pointinpolygon</a></p>
+	  | <a target="_blank" href="https://twitter.com/pointinpolygon">@pointinpolygon</a></p>
     <br>
-    <p>Slides at <a href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a> (<a href="https://github.com/erich666/BasicsOfThreeJS">github.com/erich666/BasicsOfThreeJS</a>)</p>
+    <p>Slides at <a target="_blank" href="http://bit.ly/eric3demos">http://bit.ly/eric3demos</a> (<a target="_blank" href="https://github.com/erich666/BasicsOfThreeJS">github.com/erich666/BasicsOfThreeJS</a>)</p>
 	<br>
-	<p>A full free course I created: <a href="http://bit.ly/intro3D">http://bit.ly/intro3D</a>
-	<p>My WebGL resource page: <a href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>
+	<p>A full free course I created: <a target="_blank" href="http://bit.ly/intro3D">http://bit.ly/intro3D</a>
+	<p>My WebGL resource page: <a target="_blank" href="http://bit.ly/webglhelp">http://bit.ly/webglhelp</a>
   </article>
 
 </section>
