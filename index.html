@@ -128,7 +128,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 	chrome.exe --allow-file-access-from-files</pre>
 	It's a security thing.
 	<br><br>See <a target="_blank" href="http://bit.ly/webglsetup">http://bit.ly/webglsetup</a> for more information and other ways to work around this (e.g., start a local server).
-	<p>Bonus info: debugger is F12 on Windows, Cmd-Shift-J on the Mac. Click on console tab for errors.
+	<p>Bonus info: debugger is F12 on Windows, Cmd-Shift-J on the Mac. Click on Console tab for warnings and errors.
   </article>
 
   <article>
@@ -167,13 +167,20 @@ scene.add( mesh );</pre>
   <article>
     <h3>A Bit More Existing Code</h3>
     <div>
-    <p>Hook up the Renderer</p>
+    <p>Hook up the Renderer:</p>
     <pre>
 renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );</pre>
-	and some typical window resize code.
+	and some typical window resize code:
+    <pre>
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}</pre>
     </div>
   </article>
 
@@ -201,8 +208,8 @@ function animate() {
     <li>The browser knows when the next frame is drawn</li>
     <div> &rarr; calls callback at screen refresh rate or lower<br><br></div>
     <li>The browser knows when an element is on the screen</li>
-	</ul>
     <div> &rarr; only calls callback when the element is visible</div>
+	</ul>
 	<P>
 	<B>Always</B> use this for best efficiency, especially for mobile.</P>
   </article>
@@ -554,8 +561,7 @@ var geometry = new THREE.SphereGeometry( 100, 32, 16 );</pre>
 100 is the radius, 32 x 16 is the mesh formed.
 	<p>See the mesh by changing the material to:
 	<pre>
-material = new THREE.MeshPhongMaterial( { map: texture, 
-    wireframe : true } );</pre>
+material = new THREE.MeshPhongMaterial( { wireframe : true } );</pre>
     </div>
   </article>
 
