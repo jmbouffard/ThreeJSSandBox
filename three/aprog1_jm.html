@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SIGGRAPH 2018 Trial - three.js webgl - geometry - cube</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0px;
+				background-color: #000000;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="three.js/build/three.js"></script>
+		<!--script src="three.js/src/loaders/ObjectLoader.js"></script-->
+		<!--script src="three.js/build/three.js"></script-->
+		<!--script src="three.js/build/three.module.js"></script-->
+
+		<script>
+
+			var camera, scene, renderer;
+			var mesh;
+
+			init();
+			animate();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.z = 400;
+
+				scene = new THREE.Scene();
+
+				// Load manually constructed model
+				var texture = new THREE.TextureLoader().load( 'textures/sail.jpg' );
+
+				var geometry = new THREE.BoxBufferGeometry( 200, 200, 200 );
+				var material = new THREE.MeshBasicMaterial( { map: texture } );
+
+				mesh = new THREE.Mesh( geometry, material );
+
+				scene.add( mesh );
+				
+				// OR
+				// Load a obj model
+				// Instantiate a loader
+				//var loader = new THREE.GLTFLoader();
+				//var loader = new THREE.ObjectLoader();
+
+				// Load a obj resource
+				/*
+				loader.load(
+					// resource URL
+					'models/obj/SatelliteDish.obj',
+					// called when the resource is loaded
+					function ( gltf ) {
+
+						scene.add( gltf.scene );
+
+						//gltf.animations; // Array<THREE.AnimationClip>
+						//gltf.scene; // THREE.Scene
+						//gltf.scenes; // Array<THREE.Scene>
+						//gltf.cameras; // Array<THREE.Camera>
+						//gltf.asset; // Object
+
+					},
+					// called while loading is progressing
+					function ( xhr ) {
+
+						console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+					},
+					// called when loading has errors
+					function ( error ) {
+
+						console.log( 'An error happened' );
+
+					}
+				);
+				*/
+
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				mesh.rotation.x += 0.005;
+				mesh.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>
