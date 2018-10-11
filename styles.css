@@ -145,7 +145,7 @@ body {
 /* Slide styles */
 
 article.biglogo {
-  background: url(images/three_dof.png) 50% 50% no-repeat, black;
+  background: url(images/crc-300x132.png) 50% 50% no-repeat, black;
 }
 
 /* Slides */
@@ -344,7 +344,7 @@ h2.subtitle {
   font-size: 60px;
   bottom: 40px;
   left: 210px;
-  padding-left: 430px;
+  padding-left: 78px;/*430px;*/
   white-space: nowrap;
   -webkit-transition: -webkit-transform 0.3s 0.8s ease-in-out;
 }
