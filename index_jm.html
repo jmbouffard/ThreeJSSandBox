@@ -67,7 +67,9 @@ Author: Jean-Michel Bouffard (jean-Michel.bouffard@canada.ca)
                     <li>Exhibitions</li>
                 </ul>
             </ul>
-            <PRE>CRC Ideas in grey box</PRE>
+            <PRE>
+CRC Ideas in grey box
+</PRE>
         </article>
 
         <article class="title">
@@ -78,7 +80,8 @@ Author: Jean-Michel Bouffard (jean-Michel.bouffard@canada.ca)
             <h3>SIGGRAPH 2018</h3>
             <ul>
                 <li><b>S</b>pecial <b>I</b>nterest Group on Computer <b>GRAPH</b>ics and Interactive Techniques</li>
-                <li>Topics covered are a mix of CG, Animation, VR, Games, Digital Art, Mixed Reality and Emerging Technologies</li>
+                <li>Topics covered are a mix of CG, Animation, VR, Games, Digital Art, Mixed Reality and Emerging
+                    Technologies</li>
                 <li>17000 attendees from research, gaming and cinematography sectors worldwide</li>
             </ul>
         </article>
@@ -88,9 +91,224 @@ Author: Jean-Michel Bouffard (jean-Michel.bouffard@canada.ca)
             <img src="images/siggraph.jpg" alt="SIGGRAPH 2018" width="100%">
         </article>
 
+        <article class="title">
+            <h2>Tutorials / Courses</h2>
+        </article>
+
+        <article>
+            <h3>Three.js 3D Engine</h3>
+            <ul>
+                <li>Cross-browser JS library and API based on <b>WebGL</b> to create and display animated 3D graphics</li>
+                <li>Three.js source repository at <a target="_blank" href="https://github.com/mrdoob/three.js/">https://github.com/mrdoob/three.js/</a></li>
+                <li>Tutorial and sample code at <a target="_blank" href="https://github.com/jmbouffard/ThreeJSSandBox">https://github.com/jmbouffard/ThreeJSSandBox</a></li>
+                <li>Advantages:
+                    <ul>
+                        <li>Platform and OS independent, supported on most browsers with WebGL 1.0, including most
+                            popular mobile browsers</li>
+                        <li>Rendering on native hardware efficiently</li>
+                        <li>Integrates with standard web packages and apps</li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Three.js tutorial</h3>
+            <iframe src="three/aprog1_jm.html"></iframe>
+        </article>
+
+        <article>
+            <h3>Three.js Features</h3>
+            <ul>
+                <li>Proposed dat.GUI (<a target="_blank" href="https://github.com/dataarts/dat.gui">https://github.com/dataarts/dat.gui</a>)
+                    to easily create sliders and controls for the 3D environment
+                    <button type="button" onclick="createUI()">Create UI</button>
+                    <button type="button" onclick="closeUI()">Remove UI</button></li>
+                <li>Many 3D model loaders available (OBJ, GLTF, etc) <a target="_blank" href="https://threejs.org/docs/index.html#api/en/loaders/FileLoader">https://threejs.org/docs/index.html#api/en/loaders/FileLoader</a></li>
+                <li>WebGL Shaders can be used directly with GLSL scripting</li>
+                <li>Alternatives to Three.js -> <a target="_blank" href="https://www.babylonjs.com/">Babylon.js</a></li>
+            </ul>
+            <PRE>
+Three.js would be useful to design quick prototypes that
+are easy to share without the need of complex development
+frameworks and APIs
+</PRE>
+            <script type="text/javascript" src="js/dat.gui.js"></script>
+            <script type="text/javascript">
+                var gui;
+                var content;
+
+                var ContentText = function () {
+                    this.message = 'DGSO_ISOC_06';
+                    this.frequency = 452;
+                    this.display = false;
+                    this.remove = function () { };
+                };
+
+                var createUI = function () {
+                    if (!gui) {
+                        content = new ContentText();
+                        gui = new dat.GUI();
+                        gui.add(content, 'message');
+                        gui.add(content, 'frequency', 450, 470);
+                        gui.add(content, 'display');
+                        gui.add(content, 'remove');
+                    }
+                };
+
+                var closeUI = function () {
+                    gui.destroy();
+                    gui = null;
+                }
+
+            </script>
+        </article>
+
+        <article>
+            <h3>JS development tools</h3>
+            Presenter discussed development methodology for web based interactive projects
+            <ul>
+                <li><a target="_blank" href="https://www.google.com/chrome/">Chrome</a>: most used browser for
+                    Web development due to the high quality of the tracking, debugging and profiling tools.</li>
+                <li><a target="_blank" href="http://jshint.com/">http://jshint.com/</a>: Tools that provides warnings
+                    on JS code and helps investigate issues.</li>
+                <li><a target="_blank" href="https://spector.babylonjs.com/">https://spector.babylonjs.com/</a>:
+                    Framework to explore and inspect WebGL scenes.</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Introduction to WebGL</h3>
+            <ul>
+                <li>Lower level JS API for rendering interactive 2D and 3D graphics within any compatible web browser</li>
+                <li>WebGL is integrated completely into all the web standards, allowing GPU-accelerated usage of
+                    physics and image processing in web page canvas</li>
+                <li>WebGL versus OpenGL:</li>
+                <ul>
+                    <li>WebGL 1.0 based on OpenGL ES 2.0</li>
+                    <li>WebGL 2.0 based on OpenGL ES 3.0</li>
+                </ul>
+                <li>Tutorials on the official Khronos WebGL repository on at <a target="_blank" href="https://github.com/KhronosGroup/WebGL">https://github.com/KhronosGroup/WebGL</a></li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Unity XR graphics group</h3>
+            <ul>
+                <li>New more modern graphics API are actively being developed, for example, DirectX 12, M and Vulkan
+                    (OpenGL successor)</li>
+                <li>WebGL is the rendering technology that will be used to provide Web based Virtual Reality (VR)</li>
+                <li>Standards for web based Virtual and Augmented reality are being developed by the WebXR group at <a
+                        target="_blank" href="https://immersive-web.github.io/webxr/">https://immersive-web.github.io/webxr/</a></li>
+            </ul>
+            <PRE>
+WebXR compliance of the CRC prototypes would lower the barrier for
+the users to run VR and AR applications and would assure easier
+deployment. For example, distributing a WebXR based application
+would be done using a single web server and would run on a typical
+modern web browser paired to a generic VR/AR hardware
+</PRE>
+        </article>
+
+        <article>
+            <h3>Deep Learning Crash Course</h3>
+            <ul>
+                <li></li>
+                <li><a target="_blank" href="http://yann.lecun.com/exdb/mnist/">MNIST "Hello world" of ML</a>: A
+                    collection of 70k hand written digits
+                    <br><img src="images/Mnist-database-hand-written-digits.png" alt="MNIST Hello world of ML" width="50%"></li>
+                <li>Andrew Glassner ressources</li>
+                <ul>
+                    <li><a target="_blank" href="https://www.glassner.com/">https://www.glassner.com/</a></li>
+                    <li><a target="_blank" href="https://github.com/blueberrymusic">https://github.com/blueberrymusic</a></li>
+                </ul>
+            </ul>
+        </article>
+
+        <article class="title">
+            <h2>Sessions</h2>
+            <h3>Maps, Urban Data, and Geocoding</h3>
+        </article>
+
+        <article>
+            <h3>What3Words</h3>
+            <ul>
+                <li><a target="_blank" href="https://what3words.com/">https://what3words.com/</a> is an
+                    innovative way of sharing the location of a person using a simple scheme of 3 regular English
+                    words. It is based on grids of 3m x 3m for which a unique combinations of words is assigned</li>
+                <li>Ever wondered what <a target="_blank" href="https://w3w.co/underway.corals.moats">underway, corals
+                        and moats</a> had in common?</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>CRC Entrance</h3>
+            <!--img src="images/w3w.png" alt="MNIST Hello world of ML" width="100%"-->
+            <iframe src="https://w3w.co/underway.corals.moats"></iframe>
+        </article>
+
+        <article>
+                <h3>CesiumJS</h3>
+                <ul>
+                    <li>New supported features</li>
+                    <ul>
+                    <li>Draco (<a target="_blank" href="https://google.github.io/draco/">https://google.github.io/draco/</a>), 3D model compression built specifically to compress 3D assets and accelerate their loading over a network connection</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                </ul>
+            </article>
 
 
 
+         session:
+        
+            • Now supporting 
+            • Availability of the Sandcastle application building tool (https://cesiumjs.org/Cesium/Build/Apps/Sandcastle/) which helps developers creating CesiumJS based prototypes.
+            • Release of ION platform (https://cesium.com/blog/2018/03/01/hello-cesium-ion/). ION is the commercial platform composed of web services and tools to complement CesiumJS’s visualization, creating a complete 3D mapping platform. 
+        Upcoming features
+            • Three.js (https://threejs.org/) Cesium integration
+            • Dynamic 3D tiles styling
+        CesiumJS demonstrations
+            • Mozilla demonstrated A-Frame and A-Terrain (https://github.com/anselm/aterrain). This is a web framework for building virtual reality experiences that supports popular VR equipment (Vive, Rift, Daydream, GearVR, desktop) straight for the browser.
+            • ESRI presented the work on I3S (http://www.opengeospatial.org/standards/i3s), the Indexed 3D Scene Layers format, which is a container for arbitrarily large amounts of heterogeneously distributed 3D geographic data. This flexible format is designed to be used in mobile, desktop, and server-based workflows are applications that are accessed either over the web or as local files.
+            • Safe Software (FME) presented its data conversion solutions capable for moving many sources of data to CesiumJS. Their product page at https://www.safe.com/integrate/cesium-3d-tiles/ list the supported input file formats.
+            • Highly detailed models of urban areas worldwide are available in CityGML format (https://www.citygml.org/). For example, the open data portal of the city of Montreal offers such datasets at http://donnees.ville.montreal.qc.ca/dataset/maquette-numerique-plateau-mont-royal-batiments-lod2-avec-textures/. 
+
+
+
+
+
+
+
+
+
+
+
+
+        <article>
+            <h3>Three.js Features</h3>
+            <ul>
+                <li><a target="_blank" href=""></a></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </article>
+
+        <article>
+            <ul>
+                <li><a target="_blank" href="http://threejs.org">http://threejs.org</a></li>
+                <li>Lightweight</li>
+                <li>Easy to use</li>
+                <li>Popular and used commercially</li>
+                <li>Performant WebGL renderer (our focus today)</li>
+                <ul>
+                    <li>Fast 3D and 2D GPU-accelerated rendering</li>
+                </ul>
+                <li>Also has Canvas, CSS3D, and SVG renderers</li>
+            </ul>
+        </article>
 
 
 
